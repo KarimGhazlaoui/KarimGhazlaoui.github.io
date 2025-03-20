@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
             handleQuickAction(action);
         });
     });
+    
+    // Ajouter un gestionnaire d'événement pour le bouton d'aide
+    const helpBtn = document.querySelector('.help-btn');
+    if (helpBtn) {
+        helpBtn.addEventListener('click', function() {
+            window.location.href = 'help.html';
+        });
+    }
 });
 
 function updateSystemStats() {

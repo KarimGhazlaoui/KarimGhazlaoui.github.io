@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubii Shield - Aide</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/help-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo-kubii.png" alt="Kubii Logo">
+                <h2>Kubii Shield</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Tableau de bord</a></li>
+                <li><a href="vpn.html"><i class="fas fa-shield-alt"></i> VPN</a></li>
+                <li><a href="adblock.html"><i class="fas fa-ban"></i> Anti-Publicités</a></li>
+                <li><a href="firewall.html"><i class="fas fa-fire"></i> Pare-feu</a></li>
+                <li><a href="scan.html"><i class="fas fa-search"></i> Scan USB</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            </ul>
+            <div class="status-info">
+                <p><i class="fas fa-circle status-icon active"></i> Système actif</p>
+                <p><i class="fas fa-microchip"></i> CPU: <span id="cpu-usage">25%</span></p>
+                <p><i class="fas fa-memory"></i> RAM: <span id="ram-usage">512 MB</span></p>
+                <p><i class="fas fa-temperature-high"></i> Temp: <span id="temperature">42°C</span></p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header>
+                <h1>Centre d'aide</h1>
+                <div class="user-info">
+                    <span>Support et documentation</span>
+                    <button class="contact-btn"><i class="fas fa-envelope"></i> Contacter le support</button>
+                </div>
+            </header>
+
+            <div class="help-dashboard">
+                <div class="help-search-card">
+                    <div class="search-container">
+                        <input type="text" id="help-search" placeholder="Rechercher dans l'aide...">
+                        <button class="search-icon"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="popular-topics">
+                        <h3>Sujets populaires :</h3>
+                        <div class="topic-badges">
+                            <span class="topic-badge" data-topic="vpn">Configuration VPN</span>
+                            <span class="topic-badge" data-topic="adblock">Listes de blocage</span>
+                            <span class="topic-badge" data-topic="firewall">Règles de pare-feu</span>
+                            <span class="topic-badge" data-topic="scan">Scan USB</span>
+                            <span class="topic-badge" data-topic="setup">Installation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-content-container">
+                    <div class="help-navigation">
+                        <div class="nav-section active" data-section="getting-started">
+                            <i class="fas fa-rocket"></i>
+                            <span>Démarrage</span>
+                        </div>
+                        <div class="nav-section" data-section="services">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Services</span>
+                        </div>
+                        <div class="nav-section" data-section="troubleshooting">
+                            <i class="fas fa-wrench"></i>
+                            <span>Dépannage</span>
+                        </div>
+                        <div class="nav-section" data-section="faq">
+                            <i class="fas fa-question-circle"></i>
+                            <span>FAQ</span>
+                        </div>
+                        <div class="nav-section" data-section="updates">
+                            <i class="fas fa-sync"></i>
+                            <span>Mises à jour</span>
+                        </div>
+                    </div>
+
+                    <div class="help-content">
+                        <!-- Section Démarrage -->
+                        <div class="help-section active" id="getting-started">
+                            <h2>Démarrage avec Kubii Shield</h2>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-info-circle"></i> Qu'est-ce que Kubii Shield ?</h3>
+                                <p>Kubii Shield est une solution complète de protection de données pour les utilisateurs particuliers, basée sur un Raspberry Pi. Elle intègre des services essentiels comme un VPN, un bloqueur de publicités, un pare-feu et un scanner USB pour protéger votre vie privée et vos données.</p>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-cogs"></i> Configuration initiale</h3>
+                                <p>Pour commencer avec votre Kubii Shield :</p>
+                                <ol>
+                                    <li>Connectez votre Kubii Shield à votre routeur avec un câble Ethernet</li>
+                                    <li>Branchez l'alimentation et attendez que l'appareil démarre</li>
+                                    <li>Connectez-vous à l'interface web à l'adresse <code>http://kubii-shield.local</code> ou via l'adresse IP de l'appareil</li>
+                                    <li>Suivez l'assistant de configuration pour paramétrer votre réseau et activer les services souhaités</li>
+                                </ol>
+                                <div class="help-image">
+                                    <img src="images/help/setup-guide.png" alt="Guide d'installation">
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-tachometer-alt"></i> Tableau de bord</h3>
+                                <p>Le tableau de bord vous offre une vue d'ensemble de l'état de votre Kubii Shield :</p>
+                                <ul>
+                                    <li><strong>État des services</strong> : Vérifiez si les services VPN, anti-publicités et pare-feu sont activés</li>
+                                    <li><strong>Aperçu du réseau</strong> : Visualisez les appareils connectés à votre réseau</li>
+                                    <li><strong>Activité récente</strong> : Consultez les dernières activités et alertes</li>
+                                    <li><strong>Actions rapides</strong> : Accédez rapidement aux fonctions principales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Section Services -->
+                        <div class="help-section" id="services">
+                            <h2>Services disponibles</h2>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-shield-alt"></i> Service VPN</h3>
+                                <p>Le service VPN vous permet de naviguer de manière anonyme et sécurisée sur Internet :</p>
+                                <ul>
+                                    <li><strong>Sélection de serveurs</strong> : Choisissez parmi différents serveurs dans le monde</li>
+                                    <li><strong>Kill Switch</strong> : Protège vos données en cas de déconnexion VPN</li>
+                                    <li><strong>Protocoles</strong> : Support pour WireGuard (recommandé) et OpenVPN</li>
+                                </ul>
+                                <div class="help-video">
+                                    <div class="video-placeholder">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>Vidéo : Comment configurer le VPN</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-ban"></i> Anti-Publicités</h3>
+                                <p>Le bloqueur de publicités filtre les publicités et trackers au niveau du réseau :</p>
+                                <ul>
+                                    <li><strong>Listes de blocage</strong> : Gérez les listes utilisées pour le filtrage</li>
+                                    <li><strong>Statistiques</strong> : Visualisez le nombre de publicités bloquées</li>
+                                    <li><strong>Personnalisation</strong> : Ajoutez vos propres règles de blocage</li>
+                                </ul>
+                                <div class="expandable-content">
+                                    <div class="expand-btn">Afficher les listes recommandées <i class="fas fa-chevron-down"></i></div>
+                                    <div class="expanded-content">
+                                        <p>Listes recommandées :</p>
+                                        <ul>
+                                            <li>EasyList : Blocage général des publicités</li>
+                                            <li>EasyPrivacy : Protection contre le pistage</li>
+                                            <li>AdGuard Base : Complémentaire à EasyList</li>
+                                            <li>Liste spécifique à votre langue</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-fire"></i> Pare-feu</h3>
+                                <p>Le pare-feu protège votre réseau contre les intrusions :</p>
+                                <ul>
+                                    <li><strong>Règles personnalisées</strong> : Créez des règles pour autoriser ou bloquer le trafic</li>
+                                    <li><strong>Blocage géographique</strong> : Filtrez le trafic par pays d'origine</li>
+                                    <li><strong>Détection d'intrusion</strong> : Protection contre les scans de ports et attaques</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-search"></i> Scan USB</h3>
+                                <p>Le scanner USB vous permet d'analyser vos périphériques contre les malwares :</p>
+                                <ul>
+                                    <li><strong>Scan automatique</strong> : Détection et analyse automatique des périphériques connectés</li>
+                                    <li><strong>Quarantaine</strong> : Isolation des fichiers suspects</li>
+                                    <li><strong>Historique</strong> : Consultez l'historique des scans précédents</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Section Dépannage -->
+                        <div class="help-section" id="troubleshooting">
+                            <h2>Dépannage</h2>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-wifi"></i> Problèmes de connectivité</h3>
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">Je ne peux pas accéder à l'interface web</div>
+                                        <div class="accordion-content">
+                                            <p>Si vous ne pouvez pas accéder à l'interface web :</p>
+                                            <ol>
+                                                <li>Vérifiez que votre Kubii Shield est allumé (LED verte allumée)</li>
+                                                <li>Assurez-vous que le câble Ethernet est correctement branché</li>
+                                                <li>Essayez d'accéder via l'adresse IP plutôt que le nom d'hôte</li>
+                                                <li>Redémarrez votre Kubii Shield et votre routeur</li>
+                                            </ol>
+                                            <p>Si le problème persiste, vous pouvez réinitialiser les paramètres réseau en maintenant le bouton de réinitialisation pendant 5 secondes.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">Internet ne fonctionne pas quand le VPN est activé</div>
+                                        <div class="accordion-content">
+                                            <p>Si vous rencontrez des problèmes de connexion avec le VPN activé :</p>
+                                            <ol>
+                                                <li>Essayez de changer de serveur VPN</li>
+                                                <li>Vérifiez que votre connexion Internet fonctionne sans le VPN</li>
+                                                <li>Essayez de changer de protocole (WireGuard ou OpenVPN)</li>
+                                                <li>Désactivez temporairement le Kill Switch dans les paramètres VPN</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">Le bloqueur de publicités bloque trop de sites</div>
+                                        <div class="accordion-content">
+                                            <p>Si certains sites web légitimes sont bloqués :</p>
+                                            <ol>
+                                                <li>Allez dans la section Anti-Publicités</li>
+                                                <li>Ajoutez le domaine à la liste des exceptions</li>
+                                                <li>Considérez la désactivation temporaire du blocage pour ce site</li>
+                                                <li>Vérifiez quelles listes de blocage sont trop agressives et désactivez-les</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-thermometer-half"></i> Problèmes de performance</h3>
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">L'appareil est lent ou surchauffe</div>
+                                        <div class="accordion-content">
+                                            <p>Si votre Kubii Shield est lent ou chauffe anormalement :</p>
+                                            <ol>
+                                                <li>Vérifiez que l'appareil est dans un endroit bien ventilé</li>
+                                                <li>Désactivez les services que vous n'utilisez pas</li>
+                                                <li>Vérifiez l'utilisation CPU et RAM dans le tableau de bord</li>
+                                                <li>Considérez un redémarrage du système</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">L'appareil est lent ou surchauffe</div>
+                                        <div class="accordion-content">
+                                            <p>Si votre Kubii Shield est lent ou chauffe anormalement :</p>
+                                            <ol>
+                                                <li>Vérifiez que l'appareil est dans un endroit bien ventilé</li>
+                                                <li>Désactivez les services que vous n'utilisez pas</li>
+                                                <li>Vérifiez l'utilisation CPU et RAM dans le tableau de bord</li>
+                                                <li>Considérez un redémarrage du système</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">Internet est plus lent avec le VPN</div>
+                                        <div class="accordion-content">
+                                            <p>Une réduction de la vitesse avec un VPN est normale, mais pour l'optimiser :</p>
+                                            <ol>
+                                                <li>Choisissez un serveur géographiquement proche de vous</li>
+                                                <li>Utilisez le protocole WireGuard qui est plus rapide qu'OpenVPN</li>
+                                                <li>Vérifiez votre vitesse de connexion sans le VPN pour comparaison</li>
+                                                <li>Essayez différents serveurs aux heures de pointe</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Problèmes communs</h3>
+                                <div class="troubleshooting-table">
+                                    <div class="trouble-row header">
+                                        <div class="trouble-cell">Problème</div>
+                                        <div class="trouble-cell">Cause possible</div>
+                                        <div class="trouble-cell">Solution</div>
+                                    </div>
+                                    <div class="trouble-row">
+                                        <div class="trouble-cell">L'appareil ne démarre pas</div>
+                                        <div class="trouble-cell">Problème d'alimentation</div>
+                                        <div class="trouble-cell">Vérifiez l'adaptateur secteur et les câbles</div>
+                                    </div>
+                                    <div class="trouble-row">
+                                        <div class="trouble-cell">LED rouge fixe</div>
+                                        <div class="trouble-cell">Surchauffe</div>
+                                        <div class="trouble-cell">Améliorez la ventilation et redémarrez</div>
+                                    </div>
+                                    <div class="trouble-row">
+                                        <div class="trouble-cell">LED rouge clignotante</div>
+                                        <div class="trouble-cell">Erreur système</div>
+                                        <div class="trouble-cell">Consultez les journaux ou réinitialisez</div>
+                                    </div>
+                                    <div class="trouble-row">
+                                        <div class="trouble-cell">Oubli du mot de passe</div>
+                                        <div class="trouble-cell">Problème d'authentification</div>
+                                        <div class="trouble-cell">Utilisez la réinitialisation d'usine (bouton 10s)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section FAQ -->
+                        <div class="help-section" id="faq">
+                            <h2>Questions fréquentes</h2>
+                            
+                            <div class="help-card">
+                                <div class="faq-filter">
+                                    <span class="filter-label">Filtrer par :</span>
+                                    <span class="faq-filter-btn active" data-filter="all">Tous</span>
+                                    <span class="faq-filter-btn" data-filter="general">Général</span>
+                                    <span class="faq-filter-btn" data-filter="vpn">VPN</span>
+                                    <span class="faq-filter-btn" data-filter="adblock">Bloqueur</span>
+                                    <span class="faq-filter-btn" data-filter="security">Sécurité</span>
+                                </div>
+                                
+                                <div class="faq-accordion">
+                                    <div class="faq-item" data-category="general">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Que fait exactement Kubii Shield ?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Kubii Shield est une solution tout-en-un pour protéger votre vie privée et vos données sur Internet. Il s'agit d'un appareil basé sur Raspberry Pi qui intègre plusieurs services de sécurité :</p>
+                                            <ul>
+                                                <li>Un VPN pour naviguer anonymement</li>
+                                                <li>Un bloqueur de publicités au niveau du réseau</li>
+                                                <li>Un pare-feu pour protéger contre les intrusions</li>
+                                                <li>Un scanner USB pour détecter les malwares</li>
+                                            </ul>
+                                            <p>Ces services protègent tous les appareils connectés à votre réseau sans avoir à installer de logiciel sur chacun d'eux.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="general">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Comment mettre à jour mon Kubii Shield ?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Kubii Shield se met à jour automatiquement par défaut. Vous pouvez vérifier manuellement les mises à jour depuis le tableau de bord en cliquant sur "Rechercher des mises à jour". Si vous préférez, vous pouvez configurer les paramètres de mise à jour dans la section Paramètres > Mises à jour.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="vpn">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Le VPN fonctionne-t-il sur tous mes appareils ?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Oui, lorsque le VPN est activé sur votre Kubii Shield, tout le trafic Internet passant par votre réseau est protégé. Cela inclut vos ordinateurs, smartphones, tablettes, TV connectées et tout autre appareil connecté à votre réseau domestique. Vous pouvez également configurer des règles pour exclure certains appareils du tunnel VPN si nécessaire.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="adblock">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Un site que j'utilise ne fonctionne plus avec le bloqueur de publicités</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Certains sites peuvent ne pas fonctionner correctement avec le bloqueur de publicités actif. Vous avez plusieurs options :</p>
+                                            <ol>
+                                                <li>Ajouter le domaine à la liste des exceptions dans la section Anti-Publicités</li>
+                                                <li>Désactiver temporairement le bloqueur de publicités</li>
+                                                <li>Ajuster les listes de blocage utilisées pour être moins restrictives</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="security">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Le scanner USB peut-il détecter tous les virus ?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Le scanner USB de Kubii Shield utilise ClamAV, une solution antivirus open source. Il peut détecter la plupart des malwares connus, mais comme tout antivirus, il n'est pas infaillible face aux menaces très récentes ou complexes. Pour une protection optimale :</p>
+                                            <ul>
+                                                <li>Gardez votre Kubii Shield à jour pour avoir les dernières définitions de virus</li>
+                                                <li>Utilisez le mode de scan approfondi pour les fichiers sensibles</li>
+                                                <li>N'utilisez pas de périphériques USB provenant de sources non fiables</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="vpn">
+                                        <div class="faq-question">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>Quelle est la différence entre WireGuard et OpenVPN ?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>WireGuard et OpenVPN sont deux protocoles VPN disponibles sur Kubii Shield :</p>
+                                            <ul>
+                                                <li><strong>WireGuard</strong> : Plus récent, plus léger et généralement plus rapide. Recommandé pour la plupart des utilisateurs.</li>
+                                                <li><strong>OpenVPN</strong> : Plus établi, très sécurisé mais peut être plus lent. Meilleure option en cas de problèmes de compatibilité avec WireGuard.</li>
+                                            </ul>
+                                            <p>Vous pouvez changer de protocole à tout moment dans les paramètres VPN en fonction de vos besoins.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section Mises à jour -->
+                        <div class="help-section" id="updates">
+                            <h2>Mises à jour du système</h2>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-history"></i> Historique des versions</h3>
+                                <div class="version-history">
+                                    <div class="version-item">
+                                        <div class="version-header">
+                                            <div class="version-number">v1.2.0</div>
+                                            <div class="version-date">15 Mars 2025</div>
+                                        </div>
+                                        <div class="version-content">
+                                            <div class="version-label new">Nouveautés</div>
+                                            <ul>
+                                                <li>Ajout du support pour le protocole WireGuard</li>
+                                                <li>Interface utilisateur redessinée pour une meilleure expérience</li>
+                                                <li>Nouveau tableau de bord avec plus de statistiques</li>
+                                            </ul>
+                                            <div class="version-label improved">Améliorations</div>
+                                            <ul>
+                                                <li>Performance de scan USB améliorée de 30%</li>
+                                                <li>Mise à jour du moteur de détection de malwares</li>
+                                                <li>Consommation de ressources optimisée</li>
+                                            </ul>
+                                            <div class="version-label fixed">Corrections</div>
+                                            <ul>
+                                                <li>Correction d'un problème de connectivité avec certains routeurs</li>
+                                                <li>Correction d'un bug d'affichage sur l'écran des paramètres</li>
+                                                <li>Résolution de problèmes de stabilité lors des mises à jour</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="version-item">
+                                        <div class="version-header">
+                                            <div class="version-number">v1.1.5</div>
+                                            <div class="version-date">20 Février 2025</div>
+                                        </div>
+                                        <div class="version-content">
+                                            <div class="version-label improved">Améliorations</div>
+                                            <ul>
+                                                <li>Support amélioré pour les TV connectées</li>
+                                                <li>Nouvelle liste de blocage AdGuard DNS</li>
+                                            </ul>
+                                            <div class="version-label fixed">Corrections</div>
+                                            <ul>
+                                                <li>Correction d'un problème de surchauffe sur certains appareils</li>
+                                                <li>Correction du blocage excessif sur les sites de streaming</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="version-item">
+                                        <div class="version-header">
+                                            <div class="version-number">v1.1.0</div>
+                                            <div class="version-date">5 Janvier 2025</div>
+                                        </div>
+                                        <div class="version-content">
+                                            <div class="version-label new">Nouveautés</div>
+                                            <ul>
+                                                <li>Ajout du module de scan USB</li>
+                                                <li>Support pour le blocage géographique dans le pare-feu</li>
+                                            </ul>
+                                            <div class="version-label improved">Améliorations</div>
+                                            <ul>
+                                                <li>Interface web plus réactive</li>
+                                                <li>Meilleure détection des appareils réseau</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="version-item">
+                                        <div class="version-header">
+                                            <div class="version-number">v1.0.0</div>
+                                            <div class="version-date">10 Décembre 2024</div>
+                                        </div>
+                                        <div class="version-content">
+                                            <div class="version-label new">Version initiale</div>
+                                            <ul>
+                                                <li>Première version stable de Kubii Shield</li>
+                                                <li>Intégration des services VPN, Anti-Publicités et Pare-feu</li>
+                                                <li>Interface web de gestion</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="help-card">
+                                <h3><i class="fas fa-download"></i> Procédure de mise à jour</h3>
+                                <p>Pour garantir le bon fonctionnement de votre Kubii Shield, nous vous recommandons de maintenir votre système à jour :</p>
+                                
+                                <div class="update-steps">
+                                    <div class="step-item">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4>Vérifier les mises à jour</h4>
+                                            <p>Depuis le tableau de bord, cliquez sur "Rechercher des mises à jour" ou accédez à Paramètres > Mises à jour.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step-item">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4>Sauvegarder votre configuration</h4>
+                                            <p>Avant toute mise à jour majeure, sauvegardez votre configuration depuis Paramètres > Sauvegarde > Exporter.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step-item">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4>Installer la mise à jour</h4>
+                                            <p>Cliquez sur "Installer" et attendez que le processus se termine. L'appareil redémarrera automatiquement.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step-item">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4>Vérifier après la mise à jour</h4>
+                                            <p>Après le redémarrage, vérifiez que tous vos services fonctionnent correctement.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="note-box warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <div>
+                                        <h4>Important</h4>
+                                        <p>Ne coupez jamais l'alimentation de votre appareil pendant une mise à jour. Cela pourrait endommager le système et nécessiter une réinstallation complète.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-contact-card">
+                    <h2>Vous avez besoin d'aide supplémentaire ?</h2>
+                    <p>Notre équipe de support est disponible pour vous aider avec toutes vos questions.</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-option">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>support@kubii.com</p>
+                            <p>Réponse sous 24-48h</p>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <i class="fas fa-comments"></i>
+                            <h3>Chat en direct</h3>
+                            <p>Lun-Ven, 9h-18h</p>
+                            <button class="chat-btn">Démarrer un chat</button>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <i class="fas fa-book"></i>
+                            <h3>Documentation</h3>
+                            <p>Guides et tutoriels</p>
+                            <a href="#" class="docs-link">Accéder aux docs</a>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <i class="fas fa-users"></i>
+                            <h3>Communauté</h3>
+                            <p>Forum d'entraide</p>
+                            <a href="#" class="forum-link">Rejoindre le forum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/help.js"></script>
+</body>
+</html>

@@ -64,7 +64,7 @@ function simulateUsbConnection() {
     }
     
     // Mettre à jour l'apparence du port 2
-    const port2 = document.querySelector('.usb-port:nth-child(2) .port-slot');
+    const port2 = document.querySelector('.usb-port[data-port="2"] .port-slot');
     if (port2) {
         port2.classList.remove('empty');
         port2.classList.add('connected');
@@ -83,7 +83,7 @@ function startScanning() {
     }
     
     // Mettre à jour l'apparence du port 2
-    const port2 = document.querySelector('.usb-port:nth-child(2) .port-slot');
+    const port2 = document.querySelector('.usb-port[data-port="2"] .port-slot');
     if (port2) {
         port2.classList.remove('connected');
         port2.classList.add('scanning');
@@ -145,7 +145,7 @@ function finishScanning() {
     }
     
     // Mettre à jour l'apparence du port 2
-    const port2 = document.querySelector('.usb-port:nth-child(2) .port-slot');
+    const port2 = document.querySelector('.usb-port[data-port="2"] .port-slot');
     if (port2) {
         port2.classList.remove('scanning');
         port2.classList.add('connected');
@@ -249,4 +249,26 @@ function emptyQuarantine() {
     });
     
     showNotification('Zone de quarantaine vidée');
+}
+
+// Fonction optionnelle pour ajouter un effet sonore lors de la connexion USB
+function playConnectSound() {
+    const audio = new Audio();
+    audio.src = 'sounds/usb-connect.mp3'; // Assurez-vous que ce fichier existe
+    audio.volume = 0.3;
+    audio.play().catch(e => {
+        // Ignorer l'erreur si l'autoplay est bloqué par le navigateur
+        console.log("Impossible de jouer le son", e);
+    });
+}
+
+// Fonction optionnelle pour ajouter un effet sonore d'alerte
+function playAlertSound() {
+    const audio = new Audio();
+    audio.src = 'sounds/alert.mp3'; // Assurez-vous que ce fichier existe
+    audio.volume = 0.3;
+    audio.play().catch(e => {
+        // Ignorer l'erreur si l'autoplay est bloqué par le navigateur
+        console.log("Impossible de jouer le son", e);
+    });
 }

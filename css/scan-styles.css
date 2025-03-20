@@ -46,67 +46,173 @@
 .scan-animation {
     margin-top: 20px;
 }
+  /* Styles pour la représentation du Raspberry Pi */
+  .raspberry-pi-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+      perspective: 1000px;
+  }
 
-.usb-ports {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
+  .raspberry-board {
+      width: 400px;
+      height: 280px;
+      background-color: #3f9f3f;
+      border-radius: 10px;
+      position: relative;
+      transform: rotateX(10deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+  }
 
-.usb-port {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+  .board-components {
+      display: flex;
+      flex: 1;
+  }
 
-.port-label {
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #666;
-}
+  .processor {
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      position: absolute;
+      top: 50px;
+      left: 120px;
+      border-radius: 5px;
+  }
 
-.port-slot {
-    width: 60px;
-    height: 25px;
-    background-color: #eee;
-    border-radius: 3px;
-    position: relative;
-}
+  .gpio-pins {
+      width: 50px;
+      height: 120px;
+      background-color: #444;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      border-radius: 3px;
+  }
 
-.port-slot.empty:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 15px;
-    background-color: #ddd;
-    border-radius: 2px;
-}
+  .ethernet-port {
+      width: 50px;
+      height: 30px;
+      background-color: #ddd;
+      position: absolute;
+      top: 40px;
+      right: 50px;
+      border-radius: 3px;
+  }
 
-.port-slot.connected {
-    background-color: #2cd07e;
-}
+  .hdmi-ports {
+      width: 60px;
+      height: 20px;
+      background-color: #222;
+      position: absolute;
+      top: 90px;
+      right: 45px;
+      border-radius: 3px;
+  }
 
-.port-slot.scanning {
-    background-color: #fcbf49;
-    animation: pulse 2s infinite;
-}
+  .usb-ports-section {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: auto;
+      padding: 15px 0;
+  }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(252, 191, 73, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(252, 191, 73, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(252, 191, 73, 0);
-    }
-}
+  .usb-port {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
 
+  .port-label {
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2px 6px;
+      border-radius: 10px;
+  }
+
+  .port-slot {
+      width: 50px;
+      height: 25px;
+      background-color: #222;
+      border-radius: 3px;
+      position: relative;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
+  }
+
+  .port-light {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #444;
+      border-radius: 50%;
+      top: 7px;
+      right: 5px;
+      transition: all 0.3s ease;
+  }
+
+  .port-slot.empty .port-light {
+      background-color: #444;
+      box-shadow: none;
+  }
+
+  .port-slot.connected .port-light {
+      background-color: #2cd07e;
+      box-shadow: 0 0 10px #2cd07e, 0 0 20px #2cd07e;
+  }
+
+  .port-slot.scanning .port-light {
+      background-color: #fcbf49;
+      box-shadow: 0 0 10px #fcbf49, 0 0 20px #fcbf49;
+      animation: pulse-light 2s infinite;
+  }
+
+  @keyframes pulse-light {
+      0% {
+          opacity: 0.5;
+          box-shadow: 0 0 5px #fcbf49, 0 0 10px #fcbf49;
+      }
+      50% {
+          opacity: 1;
+          box-shadow: 0 0 15px #fcbf49, 0 0 30px #fcbf49;
+      }
+      100% {
+          opacity: 0.5;
+          box-shadow: 0 0 5px #fcbf49, 0 0 10px #fcbf49;
+      }
+  }
+
+  /* Animation pour la connexion USB */
+  @keyframes usb-connect {
+      0% { transform: translateY(-30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .port-slot.connected::before,
+  .port-slot.scanning::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 40px;
+      background-color: #ccc;
+      border-radius: 3px 3px 0 0;
+      animation: usb-connect 0.5s ease-out;
+  }
+
+  /* Mise à jour des styles existants */
+  .port-slot.empty::before {
+      display: none;
+  }
 .scan-option-list {
     display: flex;
     flex-direction: column;

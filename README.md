@@ -109,21 +109,5 @@ Pour toute question ou suggestion concernant cette maquette, veuillez contacter:
 
 ## Licence
 
-Cette maquette est fournie à titre d'exemple et peut être librement adaptée pour votre projet Kubii Shield.
+Cette maquette est fournie à titre d'exemple et peut être librement utilisé à des fins de démonstration.
 ```
-
-## Instructions pour les images
-
-Pour compléter la maquette, vous devrez ajouter une image de logo dans le dossier `images/`. Vous pouvez soit:
-
-1. **Créer votre propre logo**: Créez une image carrée (idéalement 200x200px) avec un fond transparent et placez-la dans `images/logo-kubii.png`
-
-2. **Utiliser un logo temporaire**: Vous pouvez créer un logo simple avec un outil comme Paint ou utiliser un générateur de logo en ligne
-
-3. **Utiliser un placeholder**: Vous pouvez remplacer les balises img par une icône FontAwesome dans les fichiers HTML:
-```html
-<!-- Remplacer ceci: -->
-<img src="images/logo-kubii.png" alt="Kubii Logo">
-
-<!-- Par ceci: -->
-<i class="fas fa-shield-alt" style="font-size: 40px; color: white;"></i>

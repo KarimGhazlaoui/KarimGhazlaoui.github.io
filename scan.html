@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubii Shield - Scan USB</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/scan-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo-kubii.png" alt="Kubii Logo">
+                <h2>Kubii Shield</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Tableau de bord</a></li>
+                <li><a href="vpn.html"><i class="fas fa-shield-alt"></i> VPN</a></li>
+                <li><a href="adblock.html"><i class="fas fa-ban"></i> Anti-Publicités</a></li>
+                <li><a href="firewall.html"><i class="fas fa-fire"></i> Pare-feu</a></li>
+                <li class="active"><a href="scan.html"><i class="fas fa-search"></i> Scan USB</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            </ul>
+            <div class="status-info">
+                <p><i class="fas fa-circle status-icon active"></i> Système actif</p>
+                <p><i class="fas fa-microchip"></i> CPU: <span id="cpu-usage">25%</span></p>
+                <p><i class="fas fa-memory"></i> RAM: <span id="ram-usage">512 MB</span></p>
+                <p><i class="fas fa-temperature-high"></i> Temp: <span id="temperature">42°C</span></p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header>
+                <h1>Scan des supports USB</h1>
+                <div class="user-info">
+                    <span>Vérifiez vos périphériques contre les malwares</span>
+                    <button class="help-btn"><i class="fas fa-question-circle"></i> Aide</button>
+                </div>
+            </header>
+
+            <div class="scan-dashboard">
+                <div class="scan-status-card">
+                    <div class="scan-status-info">
+                        <div class="scan-icon-container">
+                            <i class="fas fa-usb scan-icon"></i>
+                        </div>
+                        <div class="scan-message">
+                            <h2>Prêt à scanner</h2>
+                            <p>Connectez un périphérique USB pour commencer le scan</p>
+                        </div>
+                    </div>
+                    <div class="scan-animation">
+                        <div class="usb-ports">
+                            <div class="usb-port">
+                                <div class="port-label">Port 1</div>
+                                <div class="port-slot empty"></div>
+                            </div>
+                            <div class="usb-port">
+                                <div class="port-label">Port 2</div>
+                                <div class="port-slot empty"></div>
+                            </div>
+                            <div class="usb-port">
+                                <div class="port-label">Port 3</div>
+                                <div class="port-slot empty"></div>
+                            </div>
+                            <div class="usb-port">
+                                <div class="port-label">Port 4</div>
+                                <div class="port-slot empty"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scan-options-card">
+                    <h2>Options de scan</h2>
+                    <div class="scan-option-list">
+                        <div class="scan-option">
+                            <div class="option-info">
+                                <h3>Mode de scan</h3>
+                                <p>Sélectionnez la profondeur de l'analyse</p>
+                            </div>
+                            <select class="option-select">
+                                <option value="quick">Rapide (recommandé)</option>
+                                <option value="deep">Approfondi</option>
+                                <option value="custom">Personnalisé</option>
+                            </select>
+                        </div>
+                        
+                        <div class="scan-option">
+                            <div class="option-info">
+                                <h3>Scan automatique</h3>
+                                <p>Scanner automatiquement lorsqu'un périphérique est connecté</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="scan-option">
+                            <div class="option-info">
+                                <h3>Quarantaine automatique</h3>
+                                <p>Mettre automatiquement en quarantaine les fichiers suspects</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="scan-option">
+                            <div class="option-info">
+                                <h3>Rechercher dans les archives</h3>
+                                <p>Scanner le contenu des fichiers compressés (ZIP, RAR, etc.)</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scan-history-card">
+                    <div class="card-header">
+                        <h2>Historique des scans</h2>
+                        <button class="clear-btn"><i class="fas fa-trash"></i> Effacer l'historique</button>
+                    </div>
+                    
+                    <div class="history-table">
+                        <div class="history-row header">
+                            <div class="history-cell">Date</div>
+                            <div class="history-cell">Périphérique</div>
+                            <div class="history-cell">Fichiers scannés</div>
+                            <div class="history-cell">Menaces</div>
+                            <div class="history-cell">Statut</div>
+                            <div class="history-cell">Actions</div>
+                        </div>
+                        
+                        <div class="history-row">
+                            <div class="history-cell">Aujourd'hui 10:15</div>
+                            <div class="history-cell">Kingston DataTraveler (16GB)</div>
+                            <div class="history-cell">1,542</div>
+                            <div class="history-cell">0</div>
+                            <div class="history-cell"><span class="status-badge success">Propre</span></div>
+                            <div class="history-cell">
+                                <button class="icon-btn"><i class="fas fa-eye"></i></button>
+                                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="history-row">
+                            <div class="history-cell">Hier 16:32</div>
+                            <div class="history-cell">SanDisk Ultra (32GB)</div>
+                            <div class="history-cell">3,871</div>
+                            <div class="history-cell">2</div>
+                            <div class="history-cell"><span class="status-badge danger">Infecté</span></div>
+                            <div class="history-cell">
+                                <button class="icon-btn"><i class="fas fa-eye"></i></button>
+                                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="history-row">
+                            <div class="history-cell">15/09/2023 09:45</div>
+                            <div class="history-cell">WD Elements (500GB)</div>
+                            <div class="history-cell">24,567</div>
+                            <div class="history-cell">0</div>
+                            <div class="history-cell"><span class="status-badge success">Propre</span></div>
+                            <div class="history-cell">
+                                <button class="icon-btn"><i class="fas fa-eye"></i></button>
+                                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="history-row">
+                            <div class="history-cell">10/09/2023 14:22</div>
+                            <div class="history-cell">Périphérique inconnu</div>
+                            <div class="history-cell">782</div>
+                            <div class="history-cell">1</div>
+                            <div class="history-cell"><span class="status-badge warning">En quarantaine</span></div>
+                            <div class="history-cell">
+                                <button class="icon-btn"><i class="fas fa-eye"></i></button>
+                                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quarantine-card">
+                    <div class="card-header">
+                        <h2>Zone de quarantaine</h2>
+                        <button class="danger-btn"><i class="fas fa-trash"></i> Vider la quarantaine</button>
+                    </div>
+                    
+                    <div class="quarantine-container">
+                        <div class="quarantine-list">
+                            <div class="quarantine-item">
+                                <div class="quarantine-info">
+                                    <i class="fas fa-file-alt file-icon"></i>
+                                    <div>
+                                        <h4>setup.exe</h4>
+                                        <p>Trojan.Win32.Generic</p>
+                                        <small>Mis en quarantaine hier à 16:32</small>
+                                    </div>
+                                </div>
+                                <div class="quarantine-actions">
+                                    <button class="small-btn danger"><i class="fas fa-trash"></i> Supprimer</button>
+                                    <button class="small-btn warning"><i class="fas fa-undo"></i> Restaurer</button>
+                                </div>
+                            </div>
+                            
+                            <div class="quarantine-item">
+                                <div class="quarantine-info">
+                                    <i class="fas fa-file-code file-icon"></i>
+                                    <div>
+                                        <h4>script.js</h4>
+                                        <p>JS:Miner-C [Trj]</p>
+                                        <small>Mis en quarantaine hier à 16:32</small>
+                                    </div>
+                                </div>
+                                <div class="quarantine-actions">
+                                    <button class="small-btn danger"><i class="fas fa-trash"></i> Supprimer</button>
+                                    <button class="small-btn warning"><i class="fas fa-undo"></i> Restaurer</button>
+                                </div>
+                            </div>
+                            
+                            <div class="quarantine-item">
+                                <div class="quarantine-info">
+                                    <i class="fas fa-file-pdf file-icon"></i>
+                                    <div>
+                                        <h4>rapport.pdf</h4>
+                                        <p>PDF:Exploit.CVE-2019-1457</p>
+                                        <small>Mis en quarantaine le 10/09/2023</small>
+                                    </div>
+                                </div>
+                                <div class="quarantine-actions">
+                                    <button class="small-btn danger"><i class="fas fa-trash"></i> Supprimer</button>
+                                    <button class="small-btn warning"><i class="fas fa-undo"></i> Restaurer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/scan.js"></script>
+</body>
+</html>

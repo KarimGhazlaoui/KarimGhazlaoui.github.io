@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubii Shield - VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vpn-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo-kubii.png" alt="Kubii Logo">
+                <h2>Kubii Shield</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Tableau de bord</a></li>
+                <li class="active"><a href="vpn.html"><i class="fas fa-shield-alt"></i> VPN</a></li>
+                <li><a href="adblock.html"><i class="fas fa-ban"></i> Anti-Publicités</a></li>
+                <li><a href="firewall.html"><i class="fas fa-fire"></i> Pare-feu</a></li>
+                <li><a href="scan.html"><i class="fas fa-search"></i> Scan USB</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            </ul>
+            <div class="status-info">
+                <p><i class="fas fa-circle status-icon active"></i> Système actif</p>
+                <p><i class="fas fa-microchip"></i> CPU: <span id="cpu-usage">25%</span></p>
+                <p><i class="fas fa-memory"></i> RAM: <span id="ram-usage">512 MB</span></p>
+                <p><i class="fas fa-temperature-high"></i> Temp: <span id="temperature">42°C</span></p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header>
+                <h1>Service VPN</h1>
+                <div class="user-info">
+                    <span>Protégez votre vie privée</span>
+                    <button class="help-btn"><i class="fas fa-question-circle"></i> Aide</button>
+                </div>
+            </header>
+
+            <div class="vpn-dashboard">
+                <div class="vpn-status-card">
+                    <div class="vpn-status-header">
+                        <h2>État de la connexion VPN</h2>
+                        <label class="switch">
+                            <input type="checkbox" id="vpn-toggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="vpn-status-body">
+                        <div class="vpn-status-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="vpn-status-details">
+                            <div class="status-item">
+                                <span class="label">Status:</span>
+                                <span class="value active">Connecté</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Adresse IP actuelle:</span>
+                                <span class="value">45.XX.XX.XX</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Localisation:</span>
+                                <span class="value">Paris, France</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Serveur:</span>
+                                <span class="value">fr-paris-01.vpn.kubii.com</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Temps de connexion:</span>
+                                <span class="value">01:24:35</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vpn-servers">
+                    <h2>Sélection du serveur</h2>
+                    <div class="server-search">
+                        <input type="text" placeholder="Rechercher un serveur...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="server-list">
+                        <div class="server-group">
+                            <h3><i class="fas fa-globe-europe"></i> Europe</h3>
+                            <div class="server active">
+                                <div class="server-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>France</h4>
+                                        <span>Paris</span>
+                                    </div>
+                                </div>
+                                <div class="server-stats">
+                                    <span class="ping good">22ms</span>
+                                    <i class="fas fa-signal good"></i>
+                                </div>
+                            </div>
+                            <div class="server">
+                                <div class="server-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>Allemagne</h4>
+                                        <span>Francfort</span>
+                                    </div>
+                                </div>
+                                <div class="server-stats">
+                                    <span class="ping good">31ms</span>
+                                    <i class="fas fa-signal good"></i>
+                                </div>
+                            </div>
+                            <div class="server">
+                                <div class="server-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>Pays-Bas</h4>
+                                        <span>Amsterdam</span>
+                                    </div>
+                                </div>
+                                <div class="server-stats">
+                                    <span class="ping good">35ms</span>
+                                    <i class="fas fa-signal good"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="server-group">
+                            <h3><i class="fas fa-globe-americas"></i> Amérique</h3>
+                            <div class="server">
+                                <div class="server-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>États-Unis</h4>
+                                        <span>New York</span>
+                                    </div>
+                                </div>
+                                <div class="server-stats">
+                                    <span class="ping medium">110ms</span>
+                                    <i class="fas fa-signal medium"></i>
+                                </div>
+                            </div>
+                            <div class="server">
+                                <div class="server-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>Canada</h4>
+                                        <span>Toronto</span>
+                                    </div>
+                                </div>
+                                <div class="server-stats">
+                                    <span class="ping medium">125ms</span>
+                                    <i class="fas fa-signal medium"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vpn-settings">
+                    <h2>Paramètres du VPN</h2>
+                    <div class="settings-options">
+                        <div class="setting-option">
+                            <div class="setting-description">
+                                <h3>Kill Switch</h3>
+                                <p>Bloquer tout le trafic internet si la connexion VPN est interrompue</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <div class="setting-description">
+                                <h3>Connexion automatique</h3>
+                                <p>Activer le VPN automatiquement au démarrage</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <div class="setting-description">
+                                <h3>Protection contre les fuites DNS</h3>
+                                <p>S'assurer que toutes les requêtes DNS passent par le tunnel VPN</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <div class="setting-description">
+                                <h3>Protocole VPN</h3>
+                                <p>Choisir le protocole à utiliser pour la connexion VPN</p>
+                            </div>
+                            <select class="setting-select">
+                                <option value="wireguard">WireGuard (Recommandé)</option>
+                                <option value="openvpn">OpenVPN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/vpn.js"></script>
+</body>
+</html>

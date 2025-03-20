@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubii Shield - Configuration initiale</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/setup-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="setup-body">
+    <div class="setup-container">
+        <div class="setup-sidebar">
+            <div class="logo">
+                <img src="images/logo-kubii.png" alt="Kubii Logo">
+                <h2>Kubii Shield</h2>
+            </div>
+            <div class="setup-steps">
+                <div class="step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <h3>Bienvenue</h3>
+                        <p>Introduction</p>
+                    </div>
+                </div>
+                <div class="step completed">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <h3>Réseau</h3>
+                        <p>Configuration réseau</p>
+                    </div>
+                </div>
+                <div class="step active">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <h3>Services</h3>
+                        <p>Activation des services</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <h3>Sécurité</h3>
+                        <p>Paramètres de sécurité</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-info">
+                        <h3>Terminé</h3>
+                        <p>Configuration terminée</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="setup-content">
+            <div class="setup-header">
+                <h1>Sélection des services</h1>
+                <p>Choisissez les services que vous souhaitez activer sur votre Kubii Shield</p>
+            </div>
+
+            <div class="setup-form">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon vpn">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Service VPN</h3>
+                            <p>Protégez votre vie privée et naviguez de manière anonyme sur Internet</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon adblock">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Bloqueur de publicités</h3>
+                            <p>Bloquez les publicités et les trackers sur tous vos appareils</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon firewall">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Pare-feu</h3>
+                            <p>Protégez votre réseau contre les intrusions extérieures</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon scan">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Scan USB</h3>
+                            <p>Analysez vos périphériques USB à la recherche de malwares</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon backup">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Sauvegarde réseau</h3>
+                            <p>Stockez vos données importantes en toute sécurité</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon parental">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Contrôle parental</h3>
+                            <p>Filtrez le contenu accessible sur votre réseau</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="hardware-requirements">
+                    <h3>Capacités matérielles requises</h3>
+                    <p>En fonction des services sélectionnés, voici les ressources requises:</p>
+                    
+                    <div class="requirements-details">
+                        <div class="requirement">
+                            <div class="requirement-label">Utilisation CPU:</div>
+                            <div class="requirement-bar">
+                                <div class="requirement-progress" style="width: 60%;"></div>
+                            </div>
+                            <div class="requirement-value">60%</div>
+                        </div>
+                        
+                        <div class="requirement">
+                            <div class="requirement-label">Utilisation RAM:</div>
+                            <div class="requirement-bar">
+                                <div class="requirement-progress" style="width: 75%;"></div>
+                            </div>
+                            <div class="requirement-value">768 MB</div>
+                        </div>
+                        
+                        <div class="requirement">
+                            <div class="requirement-label">Espace disque:</div>
+                            <div class="requirement-bar">
+                                <div class="requirement-progress" style="width: 30%;"></div>
+                            </div>
+                            <div class="requirement-value">1.5 GB</div>
+                        </div>
+                    </div>
+                    
+                    <div class="requirements-message success">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Compatible avec votre Raspberry Pi 4 (4GB)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-footer">
+                <button class="btn btn-outline">Précédent</button>
+                <button class="btn btn-primary">Suivant</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/setup.js"></script>
+</body>
+</html>

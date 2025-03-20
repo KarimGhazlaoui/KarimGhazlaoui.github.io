@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubii Shield - Anti-Publicités</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/adblock-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo-kubii.png" alt="Kubii Logo">
+                <h2>Kubii Shield</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Tableau de bord</a></li>
+                <li><a href="vpn.html"><i class="fas fa-shield-alt"></i> VPN</a></li>
+                <li class="active"><a href="adblock.html"><i class="fas fa-ban"></i> Anti-Publicités</a></li>
+                <li><a href="firewall.html"><i class="fas fa-fire"></i> Pare-feu</a></li>
+                <li><a href="scan.html"><i class="fas fa-search"></i> Scan USB</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            </ul>
+            <div class="status-info">
+                <p><i class="fas fa-circle status-icon active"></i> Système actif</p>
+                <p><i class="fas fa-microchip"></i> CPU: <span id="cpu-usage">25%</span></p>
+                <p><i class="fas fa-memory"></i> RAM: <span id="ram-usage">512 MB</span></p>
+                <p><i class="fas fa-temperature-high"></i> Temp: <span id="temperature">42°C</span></p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header>
+                <h1>Anti-Publicités</h1>
+                <div class="user-info">
+                    <span>Bloquez les publicités sur tout votre réseau</span>
+                    <button class="help-btn"><i class="fas fa-question-circle"></i> Aide</button>
+                </div>
+            </header>
+
+            <div class="adblock-dashboard">
+                <div class="adblock-status-card">
+                    <div class="card-header">
+                        <h2>État du bloqueur</h2>
+                        <label class="switch">
+                            <input type="checkbox" id="adblock-toggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-ban"></i></div>
+                            <div class="stat-info">
+                                <h3>Total bloquées</h3>
+                                <p class="stat-value">1,243,587</p>
+                                <p class="stat-detail">Depuis l'installation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+                            <div class="stat-info">
+                                <h3>Aujourd'hui</h3>
+                                <p class="stat-value">1,243</p>
+                                <p class="stat-detail">Depuis minuit</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                            <div class="stat-info">
+                                <h3>Taux de blocage</h3>
+                                <p class="stat-value">23.7%</p>
+                                <p class="stat-detail">des requêtes totales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-list"></i></div>
+                            <div class="stat-info">
+                                <h3>Listes utilisées</h3>
+                                <p class="stat-value">5</p>
+                                <p class="stat-detail">124,532 règles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="adblock-graph-card">
+                    <div class="card-header">
+                        <h2>Activité récente</h2>
+                        <div class="graph-controls">
+                            <button class="graph-btn active">24h</button>
+                            <button class="graph-btn">7j</button>
+                            <button class="graph-btn">30j</button>
+                        </div>
+                    </div>
+                    
+                    <div class="graph-container">
+                        <div class="graph-placeholder">
+                            <!-- Ici, dans une vraie application, on intégrerait un graphique JavaScript -->
+                            <div class="graph-bars">
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 30%"></div>
+                                    <span class="bar-label">00h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 20%"></div>
+                                    <span class="bar-label">02h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 10%"></div>
+                                    <span class="bar-label">04h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 5%"></div>
+                                    <span class="bar-label">06h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 15%"></div>
+                                    <span class="bar-label">08h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 45%"></div>
+                                    <span class="bar-label">10h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 60%"></div>
+                                    <span class="bar-label">12h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 75%"></div>
+                                    <span class="bar-label">14h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 90%"></div>
+                                    <span class="bar-label">16h</span>
+                                </div>
+                                <div class="bar-container active">
+                                    <div class="bar" style="height: 80%"></div>
+                                    <span class="bar-label">18h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 50%"></div>
+                                    <span class="bar-label">20h</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar" style="height: 40%"></div>
+                                    <span class="bar-label">22h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="adblock-lists-card">
+                    <div class="card-header">
+                        <h2>Listes de blocage</h2>
+                        <button class="primary-btn"><i class="fas fa-plus"></i> Ajouter une liste</button>
+                    </div>
+                    
+                    <div class="lists-table">
+                        <div class="list-row header">
+                            <div class="list-cell">Nom</div>
+                            <div class="list-cell">Source</div>
+                            <div class="list-cell">Règles</div>
+                            <div class="list-cell">Dernière mise à jour</div>
+                            <div class="list-cell">Actions</div>
+                        </div>
+                        
+                        <div class="list-row">
+                            <div class="list-cell">
+                                <span class="list-name">EasyList</span>
+                                <span class="list-badge default">Par défaut</span>
+                            </div>
+                            <div class="list-cell">easylist.to</div>
+                            <div class="list-cell">62,437</div>
+                            <div class="list-cell">Aujourd'hui à 08:45</div>
+                            <div class="list-cell">
+                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                <button class="icon-btn"><i class="fas fa-cog"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="list-row">
+                            <div class="list-cell">
+                                <span class="list-name">EasyPrivacy</span>
+                                <span class="list-badge default">Par défaut</span>
+                            </div>
+                            <div class="list-cell">easylist.to</div>
+                            <div class="list-cell">27,314</div>
+                            <div class="list-cell">Aujourd'hui à 08:45</div>
+                            <div class="list-cell">
+                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                <button class="icon-btn"><i class="fas fa-cog"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="list-row">
+                            <div class="list-cell">
+                                <span class="list-name">AdGuard Base</span>
+                                <span class="list-badge default">Par défaut</span>
+                            </div>
+                            <div class="list-cell">adguard.com</div>
+                            <div class="list-cell">48,196</div>
+                            <div class="list-cell">Aujourd'hui à 08:45</div>
+                            <div class="list-cell">
+                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                <button class="icon-btn"><i class="fas fa-cog"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="list-row">
+                            <div class="list-cell">
+                                <span class="list-name">Liste française</span>
+                                <span class="list-badge custom">Personnalisée</span>
+                            </div>
+                            <div class="list-cell">filtres.easylist-downloads.com</div>
+                            <div class="list-cell">15,328</div>
+                            <div class="list-cell">Hier à 21:17</div>
+                            <div class="list-cell">
+                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                <button class="icon-btn"><i class="fas fa-cog"></i></button>
+                                <button class="icon-btn danger"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="list-row">
+                            <div class="list-cell">
+                                <span class="list-name">Ma liste personnelle</span>
+                                <span class="list-badge custom">Personnalisée</span>
+                            </div>
+                            <div class="list-cell">Local</div>
+                            <div class="list-cell">57</div>
+                            <div class="list-cell">Il y a 3 jours</div>
+                            <div class="list-cell">
+                                <button class="icon-btn"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn danger"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="adblock-settings-card">
+                    <div class="card-header">
+                        <h2>Paramètres du bloqueur</h2>
+                    </div>
+                    
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Mise à jour automatique des listes</h3>
+                                <p>Mettre à jour les listes de blocage automatiquement</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Bloquer les trackers</h3>
+                                <p>Bloquer les outils de traçage en ligne</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Mode de blocage</h3>
+                                <p>Méthode utilisée pour bloquer les publicités</p>
+                            </div>
+                            <select class="setting-select">
+                                <option value="dns">Blocage DNS (Recommandé)</option>
+                                <option value="host">Fichier hôtes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Fréquence de mise à jour</h3>
+                                <p>Fréquence de mise à jour des listes de blocage</p>
+                            </div>
+                            <select class="setting-select">
+                                <option value="daily">Quotidienne</option>
+                                <option value="weekly">Hebdomadaire</option>
+                                <option value="monthly">Mensuelle</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/adblock.js"></script>
+</body>
+</html>

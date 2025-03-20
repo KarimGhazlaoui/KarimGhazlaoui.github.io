@@ -1,6 +1,7 @@
 :root {
   --primary-color: #e73c7e;
   --secondary-color: #23a6d5;
+  --sidebar-color: #2a3f54;  /* Nouvelle couleur pour la barre latérale */
   --dark-color: #2a2a2a;
   --light-color: #f4f4f4;
   --success-color: #28a745;
@@ -24,18 +25,24 @@ body {
 }
 
 .container {
-  display: flex;
+  display: block;
   min-height: 100vh;
 }
 
 /* Sidebar styles */
 .sidebar {
   width: 250px;
-  background-color: #2a3f54;  /* Bleu foncé élégant */
+  background-color: var(--sidebar-color);
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: fixed; /* Fixe la sidebar pour qu'elle reste visible lors du défilement */
+  top: 0;
+  left: 0;
+  bottom: 0; /* S'étend jusqu'au bas de la fenêtre */
+  z-index: 100;
+  overflow-y: auto; /* Permet le défilement du contenu de la sidebar */
 }
 
 .logo {
@@ -79,10 +86,13 @@ body {
 }
 
 .status-info {
-  margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 15px;
-  border-radius: var(--border-radius);
+  z-index: 101; /* Au-dessus de la sidebar */
 }
 
 .status-info p {
@@ -100,7 +110,8 @@ body {
 
 /* Main content styles */
 .content {
-  flex: 1;
+  margin-left: 250px; /* Même largeur que la sidebar */
+  width: calc(100% - 250px);
   padding: 20px;
   overflow-y: auto;
 }
@@ -341,6 +352,24 @@ input:checked + .slider:before {
 }
 
 /* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative; /* Redevient relative sur mobile */
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+  
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .status-info {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1200px) {
   .stats-row {
     flex-direction: column;
@@ -358,7 +387,9 @@ input:checked + .slider:before {
   
   .sidebar {
     width: 100%;
-    padding: 10px;
+    height: auto;
+    overflow-y: visible;
+    padding: 10px 20px;
   }
   
   .nav-links {
@@ -373,7 +404,16 @@ input:checked + .slider:before {
   }
   
   .status-info {
-    display: none;
+    width: 100%; /* Pleine largeur sur mobile */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block; /* Annuler le display: none précédent */
+  }
+  
+  /* Ajuster le padding du contenu principal pour éviter le chevauchement */
+  .content {
+    padding-bottom: 100px;
   }
 }
 
@@ -575,86 +615,85 @@ input:checked + .slider:before {
     border: 1px solid #eee;
 }
 
-/* Par ce nouveau style avec couleur unie et effet */
 .router-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #2a3f54; /* Couleur unie bleu foncé élégant */
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-shadow: 0 0 0 5px rgba(42, 63, 84, 0.2), 0 0 20px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--sidebar-color); /* Couleur unie assortie à la sidebar */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(42, 63, 84, 0.2), 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
 }
 
-/* Ajoutez cette animation pour un effet de pulsation */
+/* Animation de pulsation pour l'icône du routeur */
 @keyframes pulse {
-  0% {
-      box-shadow: 0 0 0 0 rgba(42, 63, 84, 0.7), 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-  70% {
-      box-shadow: 0 0 0 10px rgba(42, 63, 84, 0), 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-      box-shadow: 0 0 0 0 rgba(42, 63, 84, 0), 0 0 20px rgba(0, 0, 0, 0.3);
-  }
+    0% {
+        box-shadow: 0 0 0 0 rgba(42, 63, 84, 0.7), 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(42, 63, 84, 0), 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(42, 63, 84, 0), 0 0 20px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .router-icon i {
-  color: white;
-  font-size: 24px;
+    color: white;
+    font-size: 24px;
 }
 
 .router-icon span {
-  font-size: 10px;
-  color: white;
-  margin-top: 4px;
-  white-space: nowrap;
+    font-size: 10px;
+    color: white;
+    margin-top: 4px;
+    white-space: nowrap;
 }
 
 .devices-icons {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .device-icon {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.2s;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .device-icon:hover {
-  transform: scale(1.15);
+    transform: scale(1.15);
 }
 
 .device-icon.connected i {
-  color: var(--success-color);
+    color: var(--success-color);
 }
 
 .device-icon.low-signal i {
-  color: var(--warning-color);
+    color: var(--warning-color);
 }
 
 .device-icon.inactive i {
-  color: #aaa;
+    color: #aaa;
 }
 
 /* Positionnement des icônes d'appareils */
@@ -669,229 +708,229 @@ input:checked + .slider:before {
 
 /* Lignes de connexion */
 .connection-lines {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .connection-lines::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 230px;
-  height: 230px;
-  background: radial-gradient(circle, rgba(35, 166, 213, 0.1) 0%, rgba(35, 166, 213, 0) 70%);
-  transform: translate(-50%, -50%);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 230px;
+    height: 230px;
+    background: radial-gradient(circle, rgba(35, 166, 213, 0.1) 0%, rgba(35, 166, 213, 0) 70%);
+    transform: translate(-50%, -50%);
 }
 
 /* Liste des appareils */
 .device-list-header,
 .device-row {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
 }
 
 .device-list-header {
-  background-color: #f5f5f5;
-  font-weight: 600;
-  font-size: 13px;
-  color: #666;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  padding: 10px 15px;
+    background-color: #f5f5f5;
+    font-weight: 600;
+    font-size: 13px;
+    color: #666;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    padding: 10px 15px;
 }
 
 .device-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: 1px solid #eee;
-  border-radius: var(--border-radius);
-  overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .device-row {
-  padding: 12px 15px;
-  transition: background-color 0.2s;
+    padding: 12px 15px;
+    transition: background-color 0.2s;
 }
 
 .device-row:hover {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
 .device-col {
-  padding: 0 5px;
+    padding: 0 5px;
 }
 
 .device-icon-col {
-  width: 40px;
-  text-align: center;
+    width: 40px;
+    text-align: center;
 }
 
 .device-name-col {
-  flex: 2;
+    flex: 2;
 }
 
 .device-ip-col {
-  flex: 1;
-  color: #666;
-  font-family: monospace;
+    flex: 1;
+    color: #666;
+    font-family: monospace;
 }
 
 .device-usage-col {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 .device-status-col {
-  flex: 1;
-  text-align: center;
+    flex: 1;
+    text-align: center;
 }
 
 .device-action-col {
-  width: 80px;
-  text-align: right;
+    width: 80px;
+    text-align: right;
 }
 
 .usage-bar {
-  height: 6px;
-  background-color: #eee;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 2px;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2px;
 }
 
 .usage-fill {
-  height: 100%;
-  background-color: var(--secondary-color);
-  border-radius: 3px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 3px;
 }
 
 .usage-fill.high-usage {
-  background-color: var(--warning-color);
+    background-color: var(--warning-color);
 }
 
 .usage-text {
-  font-size: 12px;
-  color: #777;
+    font-size: 12px;
+    color: #777;
 }
 
 .status-badge {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .status-badge.online {
-  background-color: rgba(40, 167, 69, 0.1);
-  color: var(--success-color);
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
 }
 
 .status-badge.warning {
-  background-color: rgba(255, 193, 7, 0.1);
-  color: var(--warning-color);
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
 }
 
 .status-badge.offline {
-  background-color: rgba(108, 117, 125, 0.1);
-  color: #6c757d;
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
 }
 
 .icon-btn {
-  background: none;
-  border: none;
-  color: #777;
-  cursor: pointer;
-  font-size: 15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s;
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
 }
 
 .icon-btn:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .info-btn:hover {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .block-btn:hover {
-  color: var(--danger-color);
+    color: var(--danger-color);
 }
 
 .device-list-footer {
-  padding: 15px;
-  text-align: center;
+    padding: 15px;
+    text-align: center;
 }
 
 .see-all-btn {
-  background: none;
-  border: none;
-  color: var(--secondary-color);
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
 }
 
 .see-all-btn:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .see-all-btn i {
-  font-size: 12px;
-  margin-left: 5px;
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 /* Styles responsive pour l'aperçu réseau */
 @media (max-width: 992px) {
-  .network-stats {
-      flex-wrap: wrap;
-  }
-  
-  .net-stat {
-      min-width: 110px;
-  }
-  
-  .device-list-header .device-usage-col,
-  .device-row .device-usage-col {
-      display: none;
-  }
+    .network-stats {
+        flex-wrap: wrap;
+    }
+    
+    .net-stat {
+        min-width: 110px;
+    }
+    
+    .device-list-header .device-usage-col,
+    .device-row .device-usage-col {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
-  .widget-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-  }
-  
-  .widget-controls {
-      width: 100%;
-      justify-content: space-between;
-  }
-  
-  .device-list-header .device-ip-col,
-  .device-row .device-ip-col {
-      display: none;
-  }
+    .widget-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .widget-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .device-list-header .device-ip-col,
+    .device-row .device-ip-col {
+        display: none;
+    }
 }
 
 /* Styles de surbrillance pour la sélection d'appareils */
 .device-row.highlight {
-  background-color: rgba(35, 166, 213, 0.1);
-  border-left: 3px solid var(--secondary-color);
+    background-color: rgba(35, 166, 213, 0.1);
+    border-left: 3px solid var(--secondary-color);
 }

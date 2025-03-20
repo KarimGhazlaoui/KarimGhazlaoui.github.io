@@ -109,5 +109,5 @@ Pour toute question ou suggestion concernant cette maquette, veuillez contacter:
 
 ## Licence
 
-Cette maquette est fournie à titre d'exemple et peut être librement adaptée pour votre projet Kubii Shield.
+Cette maquette est fournie à titre d'exemple et peut être librement utilisé à des fins de démonstration.
 ```

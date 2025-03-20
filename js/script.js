@@ -39,6 +39,72 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'help.html';
         });
     }
+
+    // Recherche d'appareils
+    const deviceSearch = document.getElementById('device-search');
+    if (deviceSearch) {
+        deviceSearch.addEventListener('input', function() {
+            filterDevices(this.value);
+        });
+    }
+
+    // Filtres d'appareils
+    const filterOptions = document.querySelectorAll('.filter-option');
+    filterOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mettre à jour le filtre actif
+            document.querySelectorAll('.filter-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Appliquer le filtre
+            const filterType = this.getAttribute('data-filter');
+            filterDevicesByStatus(filterType);
+        });
+    });
+
+    // Icônes d'appareils dans la visualisation
+    const deviceIcons = document.querySelectorAll('.device-icon');
+    deviceIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const ip = this.getAttribute('data-ip');
+            const type = this.getAttribute('data-type');
+            
+            // Mettre en surbrillance l'appareil correspondant dans la liste
+            highlightDeviceInList(ip, type);
+        });
+    });
+
+    // Boutons d'informations
+    const infoBtns = document.querySelectorAll('.info-btn');
+    infoBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const deviceRow = this.closest('.device-row');
+            const deviceName = deviceRow.querySelector('.device-name-col').textContent;
+            showDeviceDetails(deviceName);
+        });
+    });
+
+    // Boutons de blocage
+    const blockBtns = document.querySelectorAll('.block-btn');
+    blockBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const deviceRow = this.closest('.device-row');
+            const deviceName = deviceRow.querySelector('.device-name-col').textContent;
+            toggleDeviceBlock(deviceName, deviceRow);
+        });
+    });
+
+    // Bouton "Voir tous les appareils"
+    const seeAllBtn = document.querySelector('.see-all-btn');
+    if (seeAllBtn) {
+        seeAllBtn.addEventListener('click', function() {
+            showAllDevices();
+        });
+    }
 });
 
 function updateSystemStats() {
@@ -205,4 +271,94 @@ function showNotification(message) {
             }, 300);
         }, 3000);
     }, 100);
+}
+
+// Fonctions pour l'aperçu réseau
+function filterDevices(query) {
+    query = query.toLowerCase();
+    const deviceRows = document.querySelectorAll('.device-row');
+    
+    deviceRows.forEach(row => {
+        const deviceName = row.querySelector('.device-name-col').textContent.toLowerCase();
+        const deviceIp = row.querySelector('.device-ip-col').textContent.toLowerCase();
+        
+        if (deviceName.includes(query) || deviceIp.includes(query)) {
+            row.style.display = 'flex';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function filterDevicesByStatus(status) {
+    const deviceRows = document.querySelectorAll('.device-row');
+    
+    deviceRows.forEach(row => {
+        const statusBadge = row.querySelector('.status-badge');
+        
+        if (status === 'all') {
+            row.style.display = 'flex';
+        } else if (status === 'active' && statusBadge.classList.contains('online')) {
+            row.style.display = 'flex';
+        } else if (status === 'inactive' && !statusBadge.classList.contains('online')) {
+            row.style.display = 'flex';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function highlightDeviceInList(ip, type) {
+    // Réinitialiser l'état de surbrillance
+    const deviceRows = document.querySelectorAll('.device-row');
+    deviceRows.forEach(row => {
+        row.classList.remove('highlight');
+    });
+    
+    // Trouver et mettre en surbrillance l'appareil correspondant
+    const targetRow = document.querySelector(`.device-row[data-type="${type}"]`);
+    if (targetRow) {
+        targetRow.classList.add('highlight');
+        
+        // Faire défiler jusqu'à l'appareil
+        targetRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+function showDeviceDetails(deviceName) {
+    // Simuler l'affichage d'une fenêtre modale avec les détails
+    showNotification(`Détails de l'appareil: ${deviceName}`);
+    
+    // Dans une vraie application, afficher une modale avec des informations détaillées
+    alert(`Dans une application réelle, une fenêtre modale s'ouvrirait ici avec les détails complets de l'appareil "${deviceName}", y compris l'historique de connexion, les statistiques d'utilisation, etc.`);
+}
+
+function toggleDeviceBlock(deviceName, deviceRow) {
+    // Vérifier si l'appareil est déjà bloqué
+    const statusBadge = deviceRow.querySelector('.status-badge');
+    const isBlocked = statusBadge.textContent === 'Bloqué';
+    
+    if (isBlocked) {
+        // Débloquer l'appareil
+        if (confirm(`Êtes-vous sûr de vouloir débloquer "${deviceName}" ?`)) {
+            statusBadge.textContent = 'En ligne';
+            statusBadge.className = 'status-badge online';
+            showNotification(`Appareil "${deviceName}" débloqué`);
+        }
+    } else {
+        // Bloquer l'appareil
+        if (confirm(`Êtes-vous sûr de vouloir bloquer "${deviceName}" ?`)) {
+            statusBadge.textContent = 'Bloqué';
+            statusBadge.className = 'status-badge offline';
+            showNotification(`Appareil "${deviceName}" bloqué`);
+        }
+    }
+}
+
+function showAllDevices() {
+    // Simuler la navigation vers une page dédiée aux appareils
+    showNotification('Affichage de tous les appareils réseau');
+    
+    // Dans une vraie application, rediriger vers une page dédiée
+    alert('Dans une application réelle, vous seriez redirigé vers une page dédiée listant tous les appareils du réseau avec des informations détaillées.');
 }

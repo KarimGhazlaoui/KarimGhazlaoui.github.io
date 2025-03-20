@@ -448,3 +448,434 @@ input:checked + .slider:before {
     transform: translateY(0);
     opacity: 1;
 }
+
+/* Styles pour le widget réseau amélioré */
+.network-widget {
+    padding-bottom: 0;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.widget-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.search-container {
+    position: relative;
+}
+
+#device-search {
+    padding: 6px 10px 6px 30px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 13px;
+    width: 180px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 12px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+}
+
+.filter-option.active {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+/* Statistiques réseau */
+.network-stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.net-stat {
+    background-color: #f5f5f5;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    box-shadow: none;
+    margin: 0;
+}
+
+.net-stat .stat-value {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.net-stat .stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Visualisation du réseau */
+.network-visualization {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    height: 140px;
+    border: 1px solid #eee;
+}
+
+.router-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.router-icon i {
+  color: white;
+  font-size: 24px;
+}
+
+.router-icon span {
+  font-size: 10px;
+  color: white;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.devices-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.device-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.device-icon:hover {
+  transform: scale(1.15);
+}
+
+.device-icon.connected i {
+  color: var(--success-color);
+}
+
+.device-icon.low-signal i {
+  color: var(--warning-color);
+}
+
+.device-icon.inactive i {
+  color: #aaa;
+}
+
+/* Positionnement des icônes d'appareils */
+.device-icon:nth-child(1) { top: 20px; left: 30%; }
+.device-icon:nth-child(2) { top: 40px; right: 20%; }
+.device-icon:nth-child(3) { bottom: 30px; left: 20%; }
+.device-icon:nth-child(4) { bottom: 20px; right: 30%; }
+.device-icon:nth-child(5) { top: 60px; left: 15%; }
+.device-icon:nth-child(6) { top: 70px; right: 15%; }
+.device-icon:nth-child(7) { bottom: 40px; left: 35%; }
+.device-icon:nth-child(8) { bottom: 60px; right: 25%; }
+
+/* Lignes de connexion */
+.connection-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.connection-lines::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  background: radial-gradient(circle, rgba(35, 166, 213, 0.1) 0%, rgba(35, 166, 213, 0) 70%);
+  transform: translate(-50%, -50%);
+}
+
+/* Liste des appareils */
+.device-list-header,
+.device-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.device-list-header {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  font-size: 13px;
+  color: #666;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  padding: 10px 15px;
+}
+
+.device-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.device-row {
+  padding: 12px 15px;
+  transition: background-color 0.2s;
+}
+
+.device-row:hover {
+  background-color: #f9f9f9;
+}
+
+.device-col {
+  padding: 0 5px;
+}
+
+.device-icon-col {
+  width: 40px;
+  text-align: center;
+}
+
+.device-name-col {
+  flex: 2;
+}
+
+.device-ip-col {
+  flex: 1;
+  color: #666;
+  font-family: monospace;
+}
+
+.device-usage-col {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.device-status-col {
+  flex: 1;
+  text-align: center;
+}
+
+.device-action-col {
+  width: 80px;
+  text-align: right;
+}
+
+.usage-bar {
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.usage-fill {
+  height: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.usage-fill.high-usage {
+  background-color: var(--warning-color);
+}
+
+.usage-text {
+  font-size: 12px;
+  color: #777;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.online {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+}
+
+.status-badge.warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: var(--warning-color);
+}
+
+.status-badge.offline {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.info-btn:hover {
+  color: var(--secondary-color);
+}
+
+.block-btn:hover {
+  color: var(--danger-color);
+}
+
+.device-list-footer {
+  padding: 15px;
+  text-align: center;
+}
+
+.see-all-btn {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.see-all-btn:hover {
+  color: var(--primary-color);
+}
+
+.see-all-btn i {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* Styles responsive pour l'aperçu réseau */
+@media (max-width: 992px) {
+  .network-stats {
+      flex-wrap: wrap;
+  }
+  
+  .net-stat {
+      min-width: 110px;
+  }
+  
+  .device-list-header .device-usage-col,
+  .device-row .device-usage-col {
+      display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .widget-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+  
+  .widget-controls {
+      width: 100%;
+      justify-content: space-between;
+  }
+  
+  .device-list-header .device-ip-col,
+  .device-row .device-ip-col {
+      display: none;
+  }
+}
+
+/* Styles de surbrillance pour la sélection d'appareils */
+.device-row.highlight {
+  background-color: rgba(35, 166, 213, 0.1);
+  border-left: 3px solid var(--secondary-color);
+}

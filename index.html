@@ -82,17 +82,172 @@
                 </div>
 
                 <div class="widget-row">
-                    <div class="widget large">
-                        <h3>Aperçu du réseau</h3>
+                    <div class="widget large network-widget">
+                        <div class="widget-header">
+                            <h3>Aperçu du réseau</h3>
+                            <div class="widget-controls">
+                                <div class="search-container">
+                                    <input type="text" id="device-search" placeholder="Rechercher un appareil...">
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="dropdown-btn"><i class="fas fa-filter"></i> Filtrer</button>
+                                    <div class="dropdown-content">
+                                        <a href="#" class="filter-option active" data-filter="all">Tous</a>
+                                        <a href="#" class="filter-option" data-filter="active">Actifs</a>
+                                        <a href="#" class="filter-option" data-filter="inactive">Inactifs</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="network-stats">
+                            <div class="stat-box net-stat">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">Appareils</div>
+                            </div>
+                            <div class="stat-box net-stat">
+                                <div class="stat-value">24.6 Mbps</div>
+                                <div class="stat-label">Débit descendant</div>
+                            </div>
+                            <div class="stat-box net-stat">
+                                <div class="stat-value">7.8 Mbps</div>
+                                <div class="stat-label">Débit montant</div>
+                            </div>
+                            <div class="stat-box net-stat">
+                                <div class="stat-value">15 ms</div>
+                                <div class="stat-label">Ping</div>
+                            </div>
+                        </div>
+
+                        <div class="network-visualization">
+                            <div class="router-icon">
+                                <i class="fas fa-wifi"></i>
+                                <span>Kubii Shield</span>
+                            </div>
+                            <div class="connection-lines"></div>
+                            <div class="devices-icons">
+                                <div class="device-icon connected" data-ip="192.168.1.2" data-type="laptop">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="device-icon connected" data-ip="192.168.1.3" data-type="smartphone">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="device-icon connected" data-ip="192.168.1.4" data-type="tablet">
+                                    <i class="fas fa-tablet-alt"></i>
+                                </div>
+                                <div class="device-icon connected" data-ip="192.168.1.5" data-type="tv">
+                                    <i class="fas fa-tv"></i>
+                                </div>
+                                <div class="device-icon connected" data-ip="192.168.1.6" data-type="desktop">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="device-icon low-signal" data-ip="192.168.1.7" data-type="printer">
+                                    <i class="fas fa-print"></i>
+                                </div>
+                                <div class="device-icon inactive" data-ip="192.168.1.8" data-type="iot">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="device-icon connected" data-ip="192.168.1.9" data-type="game">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="network-devices">
-                            <p>Appareils connectés: 8</p>
+                            <div class="device-list-header">
+                                <span class="device-col device-icon-col">Type</span>
+                                <span class="device-col device-name-col">Nom</span>
+                                <span class="device-col device-ip-col">Adresse IP</span>
+                                <span class="device-col device-usage-col">Utilisation</span>
+                                <span class="device-col device-status-col">Statut</span>
+                                <span class="device-col device-action-col">Action</span>
+                            </div>
                             <ul class="device-list">
-                                <li><i class="fas fa-laptop"></i> Ordinateur portable - 192.168.1.2</li>
-                                <li><i class="fas fa-mobile-alt"></i> Smartphone - 192.168.1.3</li>
-                                <li><i class="fas fa-tablet"></i> Tablette - 192.168.1.4</li>
-                                <li><i class="fas fa-tv"></i> Smart TV - 192.168.1.5</li>
-                                <li><i class="fas fa-plus-circle"></i> Afficher plus...</li>
+                                <li class="device-row" data-type="laptop">
+                                    <span class="device-col device-icon-col"><i class="fas fa-laptop"></i></span>
+                                    <span class="device-col device-name-col">Ordinateur portable</span>
+                                    <span class="device-col device-ip-col">192.168.1.2</span>
+                                    <span class="device-col device-usage-col">
+                                        <div class="usage-bar">
+                                            <div class="usage-fill" style="width: 65%"></div>
+                                        </div>
+                                        <span class="usage-text">12.4 Mbps</span>
+                                    </span>
+                                    <span class="device-col device-status-col"><span class="status-badge online">En ligne</span></span>
+                                    <span class="device-col device-action-col">
+                                        <button class="icon-btn info-btn" title="Détails"><i class="fas fa-info-circle"></i></button>
+                                        <button class="icon-btn block-btn" title="Bloquer"><i class="fas fa-ban"></i></button>
+                                    </span>
+                                </li>
+                                <li class="device-row" data-type="smartphone">
+                                    <span class="device-col device-icon-col"><i class="fas fa-mobile-alt"></i></span>
+                                    <span class="device-col device-name-col">Smartphone</span>
+                                    <span class="device-col device-ip-col">192.168.1.3</span>
+                                    <span class="device-col device-usage-col">
+                                        <div class="usage-bar">
+                                            <div class="usage-fill" style="width: 35%"></div>
+                                        </div>
+                                        <span class="usage-text">6.2 Mbps</span>
+                                    </span>
+                                    <span class="device-col device-status-col"><span class="status-badge online">En ligne</span></span>
+                                    <span class="device-col device-action-col">
+                                        <button class="icon-btn info-btn" title="Détails"><i class="fas fa-info-circle"></i></button>
+                                        <button class="icon-btn block-btn" title="Bloquer"><i class="fas fa-ban"></i></button>
+                                    </span>
+                                </li>
+                                <li class="device-row" data-type="tablet">
+                                    <span class="device-col device-icon-col"><i class="fas fa-tablet-alt"></i></span>
+                                    <span class="device-col device-name-col">Tablette</span>
+                                    <span class="device-col device-ip-col">192.168.1.4</span>
+                                    <span class="device-col device-usage-col">
+                                        <div class="usage-bar">
+                                            <div class="usage-fill" style="width: 25%"></div>
+                                        </div>
+                                        <span class="usage-text">4.8 Mbps</span>
+                                    </span>
+                                    <span class="device-col device-status-col"><span class="status-badge online">En ligne</span></span>
+                                    <span class="device-col device-action-col">
+                                        <button class="icon-btn info-btn" title="Détails"><i class="fas fa-info-circle"></i></button>
+                                        <button class="icon-btn block-btn" title="Bloquer"><i class="fas fa-ban"></i></button>
+                                    </span>
+                                </li>
+                                <li class="device-row" data-type="tv">
+                                    <span class="device-col device-icon-col"><i class="fas fa-tv"></i></span>
+                                    <span class="device-col device-name-col">Smart TV</span>
+                                    <span class="device-col device-ip-col">192.168.1.5</span>
+                                    <span class="device-col device-usage-col">
+                                        <div class="usage-bar">
+                                            <div class="usage-fill high-usage" style="width: 85%"></div>
+                                        </div>
+                                        <span class="usage-text">18.7 Mbps</span>
+                                    </span>
+                                    <span class="device-col device-status-col"><span class="status-badge online">En ligne</span></span>
+                                    <span class="device-col device-action-col">
+                                        <button class="icon-btn info-btn" title="Détails"><i class="fas fa-info-circle"></i></button>
+                                        <button class="icon-btn block-btn" title="Bloquer"><i class="fas fa-ban"></i></button>
+                                    </span>
+                                </li>
+                                <li class="device-row" data-type="printer">
+                                    <span class="device-col device-icon-col"><i class="fas fa-print"></i></span>
+                                    <span class="device-col device-name-col">Imprimante</span>
+                                    <span class="device-col device-ip-col">192.168.1.7</span>
+                                    <span class="device-col device-usage-col">
+                                        <div class="usage-bar">
+                                            <div class="usage-fill" style="width: 5%"></div>
+                                        </div>
+                                        <span class="usage-text">0.2 Mbps</span>
+                                    </span>
+                                    <span class="device-col device-status-col"><span class="status-badge warning">Signal faible</span></span>
+                                    <span class="device-col device-action-col">
+                                        <button class="icon-btn info-btn" title="Détails"><i class="fas fa-info-circle"></i></button>
+                                        <button class="icon-btn block-btn" title="Bloquer"><i class="fas fa-ban"></i></button>
+                                    </span>
+                                </li>
                             </ul>
+                            <div class="device-list-footer">
+                                <button class="see-all-btn">Voir tous les appareils (8) <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                     
